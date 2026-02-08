@@ -47,7 +47,7 @@ public class ImageController {
     }
 
     @GetMapping("/{filename}")
-    public ResponseEntity<Resource> getImage(@PathVariable String filename) {
+    public ResponseEntity<Resource> getImage(@PathVariable String filename) throws IOException {
         try {
             Resource resource = storageService.load(filename);
             String contentType = Files.probeContentType(resource.getFile().toPath());
