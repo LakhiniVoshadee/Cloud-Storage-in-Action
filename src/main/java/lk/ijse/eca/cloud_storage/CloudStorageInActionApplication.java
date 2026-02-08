@@ -8,7 +8,10 @@ import org.springframework.context.annotation.Bean;
 import java.nio.file.Files;
 import java.nio.file.Path;
 
+import lombok.extern.slf4j.Slf4j;
+
 @SpringBootApplication
+@Slf4j
 public class CloudStorageInActionApplication {
 
     public static void main(String[] args) {
@@ -19,8 +22,11 @@ public class CloudStorageInActionApplication {
     CommandLineRunner initStorageDirectory() {
         return args -> {
             Path storagePath = Path.of(System.getProperty("user.home"), ".ijse", "eca", "storage");
-            if (!Files.exists(storagePath)) {
+            if (Files.exists(storagePath)) {
+                log.info("Storage directory already exists: {}", storagePath);
+            } else {
                 Files.createDirectories(storagePath);
+                log.info("Storage directory created: {}", storagePath);
             }
         };
     }
