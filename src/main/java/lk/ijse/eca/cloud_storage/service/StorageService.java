@@ -9,4 +9,5 @@ public interface StorageService {
     String upload(MultipartFile file);
     List<String> listAll();
     Resource load(String filename);
+    void delete(String filename);
 }
