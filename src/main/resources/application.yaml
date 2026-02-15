@@ -5,3 +5,8 @@ spring:
     multipart:
       max-file-size: 10MB
       max-request-size: 10MB
+
+gcp:
+  project-id: its-2130-eca-hdse-69-70
+  credentials-location: /its-2130-eca-hdse-69-70-d668baa04d94.json
+  bucket-id: its-2130-eca-hdse-69-70-bucket-1
