@@ -7,6 +7,6 @@ spring:
       max-request-size: 10MB
 
 gcp:
-  project-id: its-2130-eca-hdse-69-70
-  credentials-location: /its-2130-eca-hdse-69-70-d668baa04d94.json
-  bucket-id: its-2130-eca-hdse-69-70-bucket-1
+  project-id: mineral-droplet-479913-m9
+  credentials-location: mineral-droplet-479913-m9-f5899e7a58a9.json
+  bucket-id: its_capstone_bucket_1
