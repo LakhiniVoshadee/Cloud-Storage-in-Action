@@ -20,12 +20,12 @@ As it stands, this application stores all uploaded images on the local machine (
 
 ## API Endpoints
 
-| Method   | Endpoint                  | Description              |
-|----------|---------------------------|--------------------------|
-| `POST`   | `/api/v1/images`          | Upload an image          |
-| `GET`    | `/api/v1/images`          | List all stored images   |
+| Method   | Endpoint                    | Description               |
+| -------- | --------------------------- | ------------------------- |
+| `POST`   | `/api/v1/images`            | Upload an image           |
+| `GET`    | `/api/v1/images`            | List all stored images    |
 | `GET`    | `/api/v1/images/{filename}` | Retrieve a specific image |
-| `DELETE` | `/api/v1/images/{filename}` | Delete a specific image  |
+| `DELETE` | `/api/v1/images/{filename}` | Delete a specific image   |
 
 ## Getting Started
 
@@ -46,6 +46,35 @@ The application will start on the default port and create the local storage dire
 A Postman collection is available for testing the API endpoints:
 
 [Cloud Storage in Action - Postman Collection](https://www.postman.com/ijse-eca-5768309/workspace/eca-69-70/collection/47280517-cecdea88-0a8b-4f46-b093-4af12ba9ac0d?action=share&creator=47280517)
+
+## Google Service Account JSON (Template)
+
+Do not commit real service account values to GitHub. Keep the real file only on your local machine.
+
+Use this template to understand the expected structure:
+
+```json
+{
+  "type": "service_account",
+  "project_id": "your-gcp-project-id",
+  "private_key_id": "your-private-key-id",
+  "private_key": "-----BEGIN PRIVATE KEY-----\\nYOUR_PRIVATE_KEY\\n-----END PRIVATE KEY-----\\n",
+  "client_email": "your-service-account-email@your-project.iam.gserviceaccount.com",
+  "client_id": "your-client-id",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/your-service-account-email%40your-project.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
+```
+
+Setup steps:
+
+1. Download your service account key JSON from Google Cloud Console.
+2. Place it in src/main/resources on your local machine.
+3. Make sure application.yaml points to that filename in gcp.credentials-location.
+4. Keep src/main/resources/\*.json in .gitignore so secrets are never committed.
 
 ## Need Help?
 
